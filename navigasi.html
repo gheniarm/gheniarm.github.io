@@ -1,0 +1,200 @@
+<html>
+<head>
+    <title>Home</title>
+	
+  <!-- Favicon -->
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+
+  <!-- Bootstrap core css -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <!-- Custom CSS -->
+  <style>
+    :root {
+      --primary-color: #440e17; /* Deep burgundy */
+      --secondary-color: #5a1220; /* Darker burgundy */
+      --accent-color: #9c6222;   /* Warm bronze */
+      --light-accent: #d4a86a;   /* Light bronze */
+      --dark-accent: #7a4d1a;    /* Dark bronze */
+      --white: #ffffff;
+      --off-white: #f8f9fa;
+      --light-gray: #e9ecef;
+      --dark-gray: #212529;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, var(--off-white) 0%, var(--light-gray) 100%);
+      color: var(--dark-gray);
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header & Navigation - Fixed at Top */
+    .header_nav_container {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .header_top_bar {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 8px 0;
+      font-size: 0.9rem;
+    }
+
+    .header_contact_info a {
+      color: var(--light-accent);
+      margin-right: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .header_contact_info a:hover {
+      color: var(--white);
+      text-decoration: none;
+    }
+
+	.social_box a {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	  width: 32px; 
+	  height: 32px;
+	  background: rgba(255, 255, 255, 0.1);
+	  color: var(--light-accent);
+	  border-radius: 50%;
+	  text-align: center;
+	  line-height: 1; 
+	  margin-left: 10px; 
+	  transition: all 0.3s ease;
+	  font-size: 14px; 
+	}
+
+	.social_box a:hover {
+	  background: var(--accent-color);
+	  color: var(--white);
+	  transform: translateY(-2px);
+	  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	}
+
+
+	.social_box a i {
+	  display: inline-block;
+	  vertical-align: middle;
+	}
+	
+	   /* Main Navigation */
+    .main_navbar {
+      padding: 15px 0;
+    }
+
+    .navbar-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--white) !important;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar-brand span {
+      color: var(--accent-color);
+      margin-left: 4px;
+    }
+
+    .navbar-brand img {
+      height: 90px;
+      margin-right: 50px;
+    }
+
+    .nav-item {
+      margin: 0 5px;
+      position: relative;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.9) !important;
+      padding: 8px 15px !important;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--accent-color) !important;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-link i {
+      margin-right: 8px;
+    }
+
+    .nav-item.active .nav-link {
+      color: var(--accent-color) !important;
+      font-weight: 600;
+    }
+
+    .nav-item.active .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 2px;
+      background: var(--accent-color);
+      bottom: 0;
+      left: 25%;
+    }
+	 </style>
+</head>
+
+ <!-- Header & Navigation - Fixed at Top -->
+  <div class="header_nav_container">
+    <div class="header_top_bar">
+      <div class="container d-flex justify-content-between align-items-center">
+        <div class="header_contact_info">
+          <a href="mailto:info@vidyalaya.id"><i class="fas fa-envelope mr-1"></i> info@vidyalaya.id</a>
+          <a href="tel:+628123456789"><i class="fas fa-phone-alt mr-1"></i> +62 812 3456 789</a>
+        </div>
+        <div class="social_box">
+          <a href="https://facebook.com/vidyalaya" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://twitter.com/vidyalaya" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://instagram.com/vidyalaya" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://youtube.com/vidyalaya" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark main_navbar">
+      <div class="container">
+        <a class="navbar-brand" href="home.html">
+          <img src="Logo.png" width="70" height="100"></img>
+          <span>Vidyalaya</span>
+        </a>
+        <button class="navbar-toggler accent-pulse" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="home.html"><i class="fas fa-home"></i> Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="services.html"><i class="fas fa-book-reader"></i> Layanan</a></li>
+            <li class="nav-item"><a class="nav-link" href="catalogue.html"><i class="fas fa-book"></i> Katalog</a></li>
+            <li class="nav-item"><a class="nav-link" href="events.html"><i class="fas fa-calendar-alt"></i> Acara</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html"><i class="fas fa-info-circle"></i> Tentang</a></li>
+            <li class="nav-item dropdown-login">
+              <a class="nav-link" href="#"><i class="fas fa-user"></i> Login</a>

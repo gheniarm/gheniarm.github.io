@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Navigation Bar */
+        .navbar {
+            background-color: #1e3c72;
+            padding: 10px 30px;
+            border-bottom: 3px solid #D4AF37;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        /* Logo Section */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-circle {
+            height: 60px;
+            width: 60px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-circle:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo-circle img {
+            height: 85%;
+            width: 85%;
+            object-fit: contain;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #D4AF37, #F1E5AC);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            letter-spacing: 0.5px;
+        }
+        
+        /* Navigation Menu */
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        /* Navigation Links */
+        .nav-menu a {
+            color: white;
+            text-align: center;
+            padding: 10px 18px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+            position: relative;
+        }
+        
+        /* Hover Effect */
+        .nav-menu a:hover {
+            color: #D4AF37;
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+        
+        /* Active/Pressed Effect */
+        .nav-menu a:active {
+            transform: translateY(1px);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+       
+        /* Icons */
+        .nav-menu a i {
+            margin-right: 8px;
+            font-size: 15px;
+        }
+         
+        .nav-menu a.contact-btn:hover {
+            background-color: rgba(212, 175, 55, 0.2);
+        }
+		
+		/* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        
+        /* Poster Container */
+        .poster-container {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* Poster */
+        .poster {
+            width: calc(50% - 10px);
+            max-width: 400px;
+            aspect-ratio: 4/5;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+		
+		.poster img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .poster:hover img {
+            transform: scale(1.03);
+        }
+        
+        .banner-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            padding: 20px;
+            color: white;
+        }
+        
+        .banner-overlay h2 {
+            margin: 0;
+            font-size: 1.5vw;
+            font-weight: 700;
+        }
+
+       .banner-overlay p {
+            margin: 10px 0 0;
+            font-size: 1vw;
+        }
+        
+        /* Content Sections */
+        .content-section {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .main-content {
+            flex: 2;
+        }
+        
+        .side-content {
+            flex: 1;
+        }
+        
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+           box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #D4AF37;
+        }
+        
+        .card-header h3 {
+            margin: 0;
+            color: #1e3c72;
+            font-size: 20px;
+        }
+        
+        /* Agenda List */
+        .agenda-item {
+            display: flex;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+       .agenda-date {
+            background: #1e3c72;
+            color: white;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            min-width: 70px;
+            margin-right: 15px;
+        }
+        
+        .agenda-date .day {
+            font-size: 20px;
+            font-weight: 700;
+            display: block;
+        }
+        
+        .agenda-date .month {
+            font-size: 12px;
+            display: block;
+            text-transform: uppercase;
+        }
+        
+        .agenda-content h4 {
+            margin: 0 0 5px;
+           color: #1e3c72;
+        }
+        
+        .agenda-content p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* News List */
+        .news-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .news-item h4 {
+            margin: 0 0 5px;
+            color: #1e3c72;
+        }
+        
+        .news-item .news-date {
+            color: #D4AF37;
+            font-size: 12px;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+       .news-item p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .media (max-width: 768px) {
+            .poster {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .banner-overlay h2 {
+                font-size: 16px;
+            }
+            
+            .banner-overlay p {
+                font-size: 12px;
+            }
+            
+            .content-section {
+                flex-direction: column;
+            }
+        }
+   </style>
+</head>
+<body>
+
+<div class="navbar">
+    <!-- Logo dan Nama di Kiri -->
+    <div class="logo-container">
+        <div class="logo-circle">
+            <img src="logo.png" alt="Logo Vidyalaya">
+        </div>
+        <div class="logo-text">Vidyalaya</div>
+    </div>
+    
+    <!-- Menu Navigasi di Kanan -->
+    <div class="nav-menu">
+        <a href="Home.html"><i class="fas fa-home"></i> Home</a>
+        <a href="Profile.html"><i class="fas fa-user"></i> Profile</a>
+        <a href="Layanan.html"><i class="fas fa-concierge-bell"></i> Services</a>
+        <a href="Koleksi.html"><i class="fas fa-book-open"></i> Collection</a>
+        <a href="FAQ.html"><i class="fas fa-question-circle"></i> FAQ</a>
+        <a href="Kontak.html" class="contact-btn"><i class="fas fa-envelope"></i> Contact Us</a>
+        <a href="Login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Poster Container -->
+    <div class="poster-container">
+        <div class="poster">
+            <img src="Poster lagi.jpg" alt="Library Poster 1">
+            <div class="banner-overlay">
+                <p><b><font size="4" color="green">Akan Berlangsung</font></b></p>
+            </div>
+        </div>
+        
+        <div class="poster">
+            <img src="poster.jpg" alt="Library Poster 2">
+            <div class="banner-overlay">
+                <p><b><font size="4" color="red">Telah Berlangsung</font></b></p>
+            </div>
+        </div>
+    </div>
+
+  <!-- Content Sections -->
+    <div class="content-section">
+        <div class="main-content">
+            <!-- Agenda/Kegiatan -->
+            <div class="card">
+                <div class="card-header">
+                    <h3><i class="fas fa-calendar-alt"></i>Agenda/Kegiatan</h3>
+                </div>
+                
+                <div class="agenda-item">
+                    <div class="agenda-date">
+                        <span class="day">8</span>
+                        <span class="month">Apr</span>
+                    </div>
+                    <div class="agenda-content">
+                        <h4>Bedah Buku "Laut Bercerita"</h4>
+                        <p>13.00 - 15.00 WIB | Telah Berlangsung</p>
+                    </div>
+                </div>
+                
+                <div class="agenda-item">
+                    <div class="agenda-date">
+                        <span class="day">21</span>
+                        <span class="month">Jun</span>
+                    </div>
+                    <div class="agenda-content">
+                        <h4>Workshop Literasi Digital</h4>
+                        <p>09.00 - 12.00 WIB | Zoom Menyusul</p>
+                    </div>
+                </div>
+                
+                <div class="agenda-item">
+                    <div class="agenda-date">
+                        <span class="day">17</span>
+                        <span class="month">Jul</span>
+                    </div>
+                    <div class="agenda-content">
+                        <h4>Book Launch "Pulang"</h4>
+                        <p>10.00 - 12.00 WIB | Auditorium</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      <div class="side-content">
+            <!-- Berita/Pengumuman -->
+            <div class="card">
+                <div class="card-header">
+                    <h3><i class="fas fa-bullhorn"></i> Berita/Pengumuman</h3>
+                </div>
+                
+                <div class="news-item">
+                    <h4>Perpustakaan Tutup Sementara</h4>
+                    <span class="news-date">14 Mei 2025</span>
+                    <p>Perpustakaan akan tutup pada tanggal 18-20 Mei 2025 untuk pemeliharaan rutin.</p>
+                </div>
+                
+                <div class="news-item">
+                    <h4>Penghargaan</h4>
+                    <span class="news-date">28 Mei 2025</span>
+                    <p>Perpustakaan Vidyalaya meraih penghargaan sebagai perpustakaan terbaik tingkat nasional.</p>
+                </div>
+                
+                <div class="news-item">
+                    <h4>Pemenang Lomba Desain Poster</h4>
+                    <span class="news-date">30 Mei 2025</span>
+                   <p>Pengumuman pemenang lomba desain poster Hari Buku Nasional.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
